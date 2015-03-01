@@ -1,0 +1,35 @@
+/*Author: Tatsumi Suenaga*/
+body {
+	background-color: #FFFFFF;
+	font-family: "Sanchez", Helvetica, serif;
+	text-align: center;
+	width: 100%;
+}
+
+h1 {
+	color: #55134E;
+	font-family: "Poiret One", Helvetica, cursive;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+table {
+	margin: 0 auto;
+	padding: 5px;
+}
+
+th {
+	background-color: #A0596B;
+}
+
+tbody {
+	background-color: #72CBDB;	
+}
+
+td {
+	padding: 5px;
+}
+
+#hi { /*hi is the shorthand term for highlight*/
+	background-color: yellow;
+}
