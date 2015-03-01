@@ -1,5 +1,6 @@
 # project4
 Author Names: Tatsumi Suenaga, Asad Iqbal, Sophy (Qu) Chen
+
 Team Member: Tatsumi Suenaga
 Role: Class Schedule Redesign (Pt 2) Coding/Design Head
       Documentation Manager
