@@ -1,0 +1,440 @@
+<!--Author: Tatsumi Suenaga -->
+<!--README: HTML was made and tested in FireFox Browser, compatability on other browsers is not guaranteed.
+	    Also when 'Jump to current date' button is pressed, it is intended that the row with the 
+   	    current date or the date closest to the current date will remain highlighted even after pressing the 
+ 	    'Jump to current date' or 'Fold'/'Unfold?' button.
+	    In addition, the 'Jump to current date' button is not available after the 'Fold' button is pressed to
+	    minimize errors that could possibly occur. -->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+  <head>
+    <title>CSE 3901 Schedule (Spring 2015) </title>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Pacifico|Sanchez|Rock+Salt' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="schedule.css" />
+    <script src="javascript.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+
+    <h1>CSE 3901 Schedule (Spring 2015)</h1>
+    <input onclick="jumpScroll()" type="button" value="Jump to current date" id="jump_button"></input>
+    <input onclick="change()" type="button" value="Fold" id="fold_button"></input>
+    <p> </p>
+    <table border="on">
+      <thead>
+        <tr>
+          <th scope="col">Meeting</th>
+          <th scope="col">Day</th>
+          <th scope="col">Date</th>
+          <th scope="col">Topic/Notes</th>
+          <th scope="col">Due Dates</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- WEEK 1 -->
+
+        <tr id="week" class="show" >
+          <td>1</td>
+          <td>Tu</td>
+          <td class="1" id="13">Jan 13</td>
+          <td>Welcome</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>2</td>
+          <td>Th</td>
+          <td class="1" id="15">Jan 15</td>
+          <td>Web application architectures; networking concepts</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="1" id="18">Jan 18</td>
+          <td>Nothing Due</td>
+          <td>Task 1 (Group Formation) Due</td>
+        </tr>
+
+        <!-- WEEK 2 -->
+
+        <tr class="show">
+          <td>3</td>
+          <td>Tu</td>
+          <td class="1" id="20">Jan 20</td>
+          <td>HTTP</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>4</td>
+          <td>Th</td>
+          <td class="1" id="22">Jan 22</td>
+          <td>Distributed Version Control</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="1" id="25">Jan 25</td>
+          <td></td>
+          <td>Project 1 (group formation and VM config)</td>
+        </tr>
+
+        <!-- WEEK 3 -->
+
+        <tr class="show">
+          <td>5</td>
+          <td>Tu</td>
+          <td class="1" id="27">Jan 27</td>
+          <td>Regular Expressions</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>6</td>
+          <td>Th</td>
+          <td class="1" id="29">Jan 29</td>
+          <td>HTML</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="2" id="1">Feb 1</td>
+          <td></td>
+          <td>Project 2 (HTTP and Linux Tools)</td>
+        </tr>
+
+        <!-- WEEK 4 -->
+
+        <tr class="show">
+          <td>7</td>
+          <td>Tu</td>
+          <td class="2" id="3">Feb 3</td>
+          <td>CSS 1</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>8</td>
+          <td>Th</td>
+          <td class="2" id="5">Feb 5</td>
+          <td>CSS 2</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="2" id="8">Feb 8</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- WEEK 5 -->
+
+        <tr class="show">
+          <td>9</td>
+          <td>Tu</td>
+          <td class="2" id="10">Feb 10</td>
+          <td>Color and Graphics</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>10</td>
+          <td>Th</td>
+          <td class="2" id="12">Feb 12</td>
+          <td>Technical Writing 1</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="2" id="15">Feb 15</td>
+          <td></td>
+          <td>Project 3 (Web scraping and HTML/CSS)</td>
+        </tr>
+
+        <!-- WEEK 6 -->
+
+        <tr class="show">
+          <td>11</td>
+          <td>Tu</td>
+          <td class="2" id="17">Feb 17</td>
+          <td>JavaScript 1</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>12</td>
+          <td>Th</td>
+          <td class="2" id="19">Feb 19</td>
+          <td>JavaScript 2</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="2" id="22">Feb 22</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- WEEK 7 -->
+
+        <tr class="show">
+          <td>13</td>
+          <td>Tu</td>
+          <td class="2" id="24">Feb 24</td>
+          <td>Ruby 1</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>14</td>
+          <td>Th</td>
+          <td class="2" id="26">Feb 26</td>
+          <td>Ruby 2</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="3" id="1">Mar 1</td>
+          <td></td>
+          <td>Project 4 (JavaScript)</td>
+        </tr>
+
+        <!-- WEEK 8 -->
+
+        <tr class="show">
+          <td>15</td>
+          <td>Tu</td>
+          <td class="3" id="3">Mar 3</td>
+          <td>Ruby 3</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>16</td>
+          <td>Th</td>
+          <td class="3" id="5">Mar 5</td>
+          <td>Midterm exam review</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="3" id="8">Mar 8</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- WEEK 9 -->
+
+        <tr class="show">
+          <td>17</td>
+          <td>Tu</td>
+          <td class="3" id="10">Mar 10</td>
+          <td>Midterm exam</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>18</td>
+          <td>Th</td>
+          <td class="3" id="12">Mar 12</td>
+          <td>No Class Today</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="3" id="15">Mar 15</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- WEEK 10 -->
+
+        <tr class="show">
+          <td></td>
+          <td>Tu</td>
+          <td class="3" id="17">Mar 17</td>
+          <td>Spring Break - no classes</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Th</td>
+          <td class="3" id="19">Mar 19</td>
+          <td>Spring Break - no classes</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="3" id="22">Mar 22</td>
+          <td></td>
+          <td>Project 5 (Mini Mashup and Ruby)</td>
+        </tr>
+
+        <!-- WEEK 11 -->
+
+        <tr class="show">
+          <td>19</td>
+          <td>Tu</td>
+          <td class="3" id="24">Mar 24</td>
+          <td>Technical Writing 2</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>20</td>
+          <td>Th</td>
+          <td class="3" id="26">Mar 26</td>
+          <td>Technical Writing 3</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="3" id="29">Mar 29</td>
+          <td></td>
+          <td>Proposals for Final Project</td>
+        </tr>
+
+        <!-- WEEK 12 -->
+
+        <tr class="show">
+          <td>21</td>
+          <td>Tu</td>
+          <td class="3" id="31">Mar 31</td>
+          <td>MVC and Rails 1</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>22</td>
+          <td>Th</td>
+          <td class="4" id="2">Apr 2</td>
+          <td>Rails 2</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="4" id="5">Apr 5</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- WEEK 13 -->
+
+        <tr class="show">
+	  
+          <td>23</td>
+          <td>Tu</td>
+          <td class="4" id="7">Apr 7</td>
+          <td>Rails 3</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>24</td>
+          <td>Th</td>
+          <td class="4" id="9">Apr 9</td>
+          <td>Rails 4</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="4" id="12">Apr 12</td>
+          <td></td>
+          <td>Final Project Due</td>
+        </tr>
+
+        <!-- WEEK 14 -->
+
+        <tr class="show">
+          <td>25</td>
+          <td>Tu</td>
+          <td class="4" id="14">Apr 14</td>
+          <td>Final Project Presentations</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>26</td>
+          <td>Th</td>
+          <td class="4" id="16">Apr 16</td>
+          <td>Final Project Presentations</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="4" id="19">Apr 19</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- WEEK 15 -->
+
+        <tr class="show">
+          <td>27</td>
+          <td>Tu</td>
+          <td class="4" id="21">Apr 21</td>
+          <td>Special Considerations</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td>28</td>
+          <td>Th</td>
+          <td class="4" id="23">Apr 23</td>
+          <td>Final Exam Review</td>
+          <td></td>
+        </tr>
+
+        <tr class="show">
+          <td></td>
+          <td>Su</td>
+          <td class="4" id="26">Apr 26</td>
+          <td></td>
+          <td>Nothing Due</td>
+        </tr>
+
+        <!-- FINAL EXAM WEEK -->
+
+        <tr class="show">
+          <td></td>
+          <td><a name="test">Fr</a></td>
+          <td class="5" id="1">May 1</td>
+          <td>FINAL EXAM</td>
+          <td id="ye">8:00 - 9:45 PM</td>
+        </tr>
+      </tbody>
+      </table>
+      </body>
+</html>
