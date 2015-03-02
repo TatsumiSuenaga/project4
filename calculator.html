@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    <title>A Simple Calculator</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    body{
+            background-color: #ffffff;
+        }
+    #box{
+        background-color: #FFE4C4;
+        width:600px;
+        height:auto;
+        margin:100px auto;
+        padding-top:20px;
+        padding-left:20px;
+        padding-bottom:10px;
+        padding-right:20px;
+        border-radius:10px;
+        border-style:none;
+        
+    }
+    #output{
+        width:560px;
+        height:35px;
+        margin:10px;
+        background-color:#F0F8FF;
+        border-style:none;
+        border-radius:5px;
+        padding:10px 10px;
+        font-size:30px;
+        color: black;
+        text-align:right;
+    }
+    .input{
+        width:575px;
+        height:auto;
+        margin:10px;
+        background-color:#DEB887;
+        border-style:none;
+        border-radius:5px;
+        padding:20px,10px;
+    }
+    .input td{
+       float:left;
+       width:40px;
+       height:20px;
+       margin-left:15px;
+       margin-right:15px;
+       margin-bottom:5px;
+       margin-top:5px;
+       padding-left:10px;
+       padding-right:10px;
+       padding-top:12px;
+       padding-bottom:10px;
+       background-color:grey;
+       border-radius:10px;
+       cursor:pointer;
+       color:#696969;
+       text-align:center;
+            }
+    .input td#special{
+        background-color:transparent;
+    }
+    .input td#operator{
+        background-color:#FF8C00;
+    }
+    .input td#equal{
+        background-color:#DEB887;
+    }
+    .input td#clears{
+        width:130px;
+        background-color:#008B8B;
+        color:#800000;
+    }
+    .input td#memories{
+        background-color:#CD5C5C;
+        
+    }
+    </style>
+    
+    </head>
+    <body>
+        <div id="box">
+            <div id="output"></div>
+            <div class="input">
+            <table>
+                <tr>
+                <td id="memories">M+</td>
+                <td id="memories">M-</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td id="operator">+</td>
+                </tr>
+                <tr>
+                    <td id="memories">MC</td>
+                    <td id="memories">MR</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td id="operator">-</td>
+                </tr>
+                <tr>
+                    <td id="clears">C</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td id="operator">*</td>
+                </tr>
+                <tr>
+                    <td id="clears">AC</td>
+                    <td>0</td>
+                    <td id="special"></td>
+                    <td>=</td>
+                    <td id="operator">/</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        function isOperator(val){
+            var ans=false;
+            if(val=="*"||val=="/"||val=="-"||val=="+"){
+                ans=true;
+            }
+            return ans;
+        }
+        var allInputs = document.getElementsByTagName("td");
+        var numArray=[];
+        var lastOperator="";
+        var inputString="";
+        var memory=0;
+        var wasEqual=false;
+        var wasMp=false;
+        var firstStoredInMemory=0;
+        for(var i=0;i<allInputs.length;i++){
+            allInputs[i].onclick=function(){
+                var display=document.getElementById("output");
+                var clicked=this.innerHTML;
+                if(clicked=="C"){
+                    display.innerHTML="";
+                    numArray.splice(numArray.length-1,numArray.length);
+                    var temp=inputString.slice(0,inputString.lastIndexOf(lastOperator)+1);
+                    inputString=temp;
+                }else if(clicked=="="){
+                    var answer=eval(inputString);
+                    display.innerHTML=answer;
+                    numArray[numArray.length]=answer;
+                    inputString=answer;
+                    wasEqual=true;
+                    lastOperator="";
+                }else if(clicked=="AC"){
+                    inputString="";
+                    display.innerHTML="";
+                    lastOperator="";
+                }else if(clicked=="MC"){
+                    memory=0;
+                    wasMp=false;
+                    wasEqual=false;
+                }else if(clicked=="MR"){
+                    display.innerHTML=memory;
+                    if(wasEqual){
+                        inputString=memory;
+                        wasEqual=false;
+                        
+                    }else{
+                        inputString+=memory;
+                    }
+                    
+                }else if(clicked=="M+"){
+                    var addedNum=Number(display.innerHTML);
+                    memory=addedNum+memory;
+                    numArray[numArray.length]=memory;
+                    wasMp=true;
+                
+                }else if(clicked=="M-"){
+                    var subNum=Number(display.innerHTML);
+                    memory=memory-subNum;
+                    numArray[numArray.length]=memory;
+                 
+                }else{
+                    //clicked is a number
+                    if(!isOperator(clicked)){
+                        //previous click is an operator, display should be the new click number
+                        if(isOperator(inputString[inputString.length-1])){
+                            display.innerHTML=clicked;
+                            
+                        }else if(wasEqual&&!wasMp){
+                            display.innerHTML=clicked;
+                            inputString="";
+                          
+                        }else if(wasMp){
+                          
+                            display.innerHTML=clicked;
+                          
+                            if(lastOperator.length==0){
+                            inputString="";
+                            }
+                            
+                        }
+                    else{//previous click is not an operator, this a number, keep displaying
+                        display.innerHTML+=clicked;
+                        
+                    }
+                    wasEqual=false;
+                    wasMp=false;
+                }else{//clicked is an operator, display the entire number
+                        var temp=display.innerHTML;
+                        var num=Number(temp);
+                        numArray[numArray.length]=num;
+                        lastOperator=clicked;
+                        
+                    }
+                    inputString+=clicked;
+                    
+                    
+                    
+                   
+                    
+                }
+            }
+        }
+    
+        </script>
+</html>
